@@ -1,0 +1,7 @@
+---
+
+- include: tasks/controller/sql_database/mariadb.yml
+- include: tasks/controller/nosql_database/mongodb.yml
+- include: tasks/controller/message_queue/rabbitmq.yml
+
+...

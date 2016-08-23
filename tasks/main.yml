@@ -1,0 +1,7 @@
+---
+
+- include: common/common.yml
+- include: controller/controller.yml
+  when: os_node_role == "controller"
+
+...

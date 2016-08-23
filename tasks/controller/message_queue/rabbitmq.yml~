@@ -1,0 +1,32 @@
+---
+
+#####
+##### Installation
+#####
+
+- name: install rabbitmq-server
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - rabbitmq-server
+  become: yes
+  become_method: sudo
+
+
+#####
+##### Configuration
+#####
+
+- name: add rabbitmq user
+  rabbitmq_user:
+    user: openstack
+    password: "{{ rabbit_password }}"
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
+  become: yes
+  become_method: sudo
+
+...

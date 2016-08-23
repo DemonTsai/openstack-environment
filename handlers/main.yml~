@@ -1,0 +1,35 @@
+---
+
+- name: restart ntp
+  service:
+    name: chrony
+    enabled: yes
+    state: restarted
+  become: yes
+  become_method: sudo
+
+- name: restart mysql
+  service:
+    name: mysql
+    enabled: yes
+    state: restarted
+  become: yes
+  become_method: sudo
+
+- name: stop mongodb
+  service:
+    name: mongodb
+    enabled: yes
+    state: stopped
+  become: yes
+  become_method: sudo
+
+- name: start mongodb
+  service:
+    name: mongodb
+    enabled: yes
+    state: started
+  become: yes
+  become_method: sudo
+
+...

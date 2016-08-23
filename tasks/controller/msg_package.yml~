@@ -1,0 +1,12 @@
+---
+
+- name: install rabbitmq-server
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - rabbitmq-server
+  become: yes
+  become_method: sudo
+
+...
+

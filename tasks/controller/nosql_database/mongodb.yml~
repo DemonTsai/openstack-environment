@@ -1,0 +1,69 @@
+---
+
+#####
+##### Installation
+#####
+
+- name: install mongodb-server, mongodb-clients, python-pymongo
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - mongodb-server
+    - mongodb-clients
+    - python-pymongo
+  become: yes
+  become_method: sudo
+
+
+#####
+##### Configuration
+#####
+
+- name: add default section tag
+  lineinfile:
+    dest: /etc/mongodb.conf
+    line: '[DEFAULT]'
+    insertbefore: BOF
+  become: yes
+  become_method: sudo
+
+- name: configure mongodb
+  ini_file: >
+    dest=/etc/mongodb.conf
+    section=DEFAULT
+    option="{{ item.option }}"
+    value="{{ item.value }}"
+    backup=yes
+  with_items:
+    - option: bind_ip
+      value: "{{ manage_ip }}"
+    - option: smallfiles
+      value: true
+  become: yes
+  become_method: sudo
+
+- name: remove default section tag
+  lineinfile:
+    dest: /etc/mongodb.conf
+    line: '[DEFAULT]'
+    state: absent
+  become: yes
+  become_method: sudo
+  notify:
+    - stop mongodb
+
+- name: remove prealloc.*
+  file:
+    path: /var/lib/mongodb/journal/prealloc.*
+    state: absent
+  become: yes
+  become_method: sudo
+  changed_when: true
+  register: ret
+  notify:
+    - start mongodb
+  tags: db
+- debug: var=ret
+  tags: db
+...
+

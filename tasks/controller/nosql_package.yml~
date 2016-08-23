@@ -1,0 +1,13 @@
+---
+
+- name: install mongodb-server, mongodb-clients, python-pymongo
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - mongodb-server
+    - mongodb-clients
+    - python-pymongo
+  become: yes
+  become_method: sudo
+
+...

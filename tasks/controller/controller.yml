@@ -1,0 +1,7 @@
+---
+
+- include: sql_database/mariadb.yml
+- include: nosql_database/mongodb.yml
+- include: message_queue/rabbitmq.yml
+
+...

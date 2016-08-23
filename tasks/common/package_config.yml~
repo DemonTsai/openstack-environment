@@ -1,0 +1,31 @@
+---
+
+#####
+##### NTP configuration
+#####
+
+- name: remove default ntp server
+  lineinfile:
+    dest: /etc/chrony/chrony.conf
+    regexp: 'debian\.pool\.ntp\.org'
+    state: absent
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+
+- name: config NTP server
+  lineinfile:
+    dest: /etc/chrony/chrony.conf
+    line: "server {{ ntp_server }} iburst"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  changed_when: True
+  notify:
+    - restart ntp
+
+...

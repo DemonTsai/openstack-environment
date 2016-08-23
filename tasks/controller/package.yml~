@@ -1,0 +1,11 @@
+---
+
+- name: install mariadb-server, python-pymysql, python-mysqldb
+  apt:
+    name: "{{ item }}
+  with_items:
+    - mariadb-server
+    - python-pymysql
+    - python-mysqldb
+  become: yes
+  become_method: sudo

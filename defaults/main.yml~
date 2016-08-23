@@ -1,0 +1,18 @@
+---
+
+# Basic
+os_node_role: other
+os_node_hostname: localhost
+reboot_time: 60
+
+# NTP
+ntp_server: time.stdtime.gov.tw
+
+# RabbitMQ
+rabbit_user: openstack
+rabbit_pass: rabbit_pass
+
+# MySQL
+mysql_root_password: db_pass
+
+...
