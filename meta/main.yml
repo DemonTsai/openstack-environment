@@ -9,10 +9,11 @@ galaxy_info:
   galaxy_tags:
     - cloud
     - openstack
-  dependencies: []
   platforms:
     - name: Ubuntu
       versions:
         - trusty
+
+dependencies: []
 
 ...
