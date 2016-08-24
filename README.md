@@ -10,7 +10,7 @@ None
 
 Role Variables
 --------------
-
+```
 os_node_role
 os_node_hostname
 manage_ip
@@ -20,12 +20,12 @@ os_node_list
     os_node_ip
 os_node_nic_list
   - nic_config_tmpl
-    nic_name
-    nic_ip
-    nic_netmask
-    nic_gateway
-    nic_dns
-
+  - nic_name
+  - nic_ip
+  - nic_netmask
+  - nic_gateway
+  - nic_dns
+```
 
 Dependencies
 ------------
@@ -35,6 +35,7 @@ None
 Example Playbook
 ----------------
 
+```
   - hosts: os-controller
     remote_user: openstack
     roles:
@@ -69,7 +70,6 @@ Example Playbook
 
           - nic_config_tmpl: nic_tunnel
             nic_name: eth2
-            
 
   - hosts: os-network
     remote_user: openstack
@@ -133,6 +133,7 @@ Example Playbook
             nic_name: eth2
             nic_ip: 10.0.0.2
             nic_netmask: 255.255.255.0
+```
 
 License
 -------
