@@ -11,8 +11,6 @@ galaxy_info:
     - cloud
     - openstack
 
-  dependencies: []
-
   platforms:
     - name: Ubuntu
       versions:
