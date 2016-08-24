@@ -1,0 +1,25 @@
+---
+- hosts: asb-controller
+  remote_user: openstack
+  roles:
+    - role: openstack-environment
+      os_node_role: controller
+      os_node_hostname: controller
+      manage_ip: "{{ ansible_default_ipv4.address }}"
+      reboot_time: 25
+      ntp_server: time.stdtime.gov.tw
+      rabbit_user: openstack
+      rabbit_pass: rabbit_pass
+      mysql_root_password: db_pass
+
+      os_node_list:
+        - os_node: controller
+          os_node_ip: "{{ ansible_default_ipv4.address }}"
+
+      os_node_nic_list:
+        - nic_config_tmpl: nic_static
+          nic_name: "{{ ansible_default_ipv4.interface }}"
+          nic_ip: "{{ ansible_default_ipv4.address }}"
+          nic_netmask: "{{ ansible_default_ipv4.netmask }}"
+          nic_gateway: "{{ ansible_default_ipv4.gateway }}"
+          nic_dns: 8.8.8.8
