@@ -33,12 +33,12 @@
   become: yes
   become_method: sudo
 
-- name: waitting for reboot
+- name: wait {{ reboot_time }} seconds for {{ ansible_host }} reboot
   local_action:
     module: wait_for
     port: 22
     search_regex: OpenSSH
-    host: "{{ os_node_hostname }}"
+    host: "{{ ansible_host }}"
     delay: "{{ reboot_time }}"
 
 - name: install openstack client

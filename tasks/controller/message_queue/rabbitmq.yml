@@ -17,7 +17,7 @@
 ##### Configuration
 #####
 
-- name: add rabbitmq user
+- name: add rabbitmq user - {{ rabbit_user }}
   rabbitmq_user:
     user: "{{ rabbit_user }}"
     password: "{{ rabbit_pass }}"

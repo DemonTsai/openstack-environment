@@ -4,4 +4,11 @@
 - include: controller/controller.yml
   when: os_node_role == "controller"
 
+- name: modify hostname to {{ os_node_hostname }}
+  hostname:
+    name: "{{ os_node_hostname }}"
+  become: yes
+  become_method: sudo
+
 ...
+

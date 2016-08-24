@@ -2,7 +2,7 @@
 
 # Base
 os_node_role: other
-os_node_hostname: localhost
+os_node_hostname: openstack
 reboot_time: 60
 
 # NTP

@@ -1,6 +1,6 @@
 ---
 
-- name: config network interface
+- name: config network interface {{ nic_name }}
   template:
     src: network/{{ nic_config_tmpl }}.j2
     dest: /etc/network/interfaces.d/{{ nic_name }}.cfg
