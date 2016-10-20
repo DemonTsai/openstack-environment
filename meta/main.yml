@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: Demon Tsai
-  description: Auto deploy openstack environment
+  description: Ansible role to deploy basic openstack environment before you install other services.
   company:
   license: Apache
   min_ansible_version: 2.1

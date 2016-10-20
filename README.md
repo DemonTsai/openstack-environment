@@ -67,12 +67,6 @@ Example Playbook
             nic_gateway: 172.16.50.2
             nic_dns: 8.8.8.8
 
-          - nic_config_tmpl: nic_manual
-            nic_name: eth1
-
-          - nic_config_tmpl: nic_tunnel
-            nic_name: eth2
-
   - hosts: os-network
     remote_user: openstack
     roles:
@@ -132,7 +126,7 @@ Example Playbook
             nic_dns: 8.8.8.8
 
           - nic_config_tmpl: nic_tunnel
-            nic_name: eth2
+            nic_name: eth1
             nic_ip: 10.0.0.2
             nic_netmask: 255.255.255.0
 ```
