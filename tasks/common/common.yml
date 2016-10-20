@@ -36,7 +36,7 @@
 - name: wait {{ reboot_time }} seconds for {{ ansible_host }} reboot
   local_action:
     module: wait_for
-    port: 22
+    port: "{{ ssh_port }}"
     search_regex: OpenSSH
     host: "{{ ansible_host }}"
     delay: "{{ reboot_time }}"
