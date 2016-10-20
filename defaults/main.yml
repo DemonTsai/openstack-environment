@@ -3,6 +3,7 @@
 # Base
 os_node_role: other
 os_node_hostname: openstack
+os_version: liberty
 reboot_time: 60
 
 # NTP
@@ -10,9 +11,12 @@ ntp_server: time.stdtime.gov.tw
 
 # RabbitMQ
 rabbit_user: openstack
-rabbit_pass: rabbit_pass
+rabbit_pass: RABBIT_PASS
 
 # MySQL
-mysql_root_password: db_pass
+mysql_root_password: MARIADB_PASS
+
+# SSH
+ssh_port: 22
 
 ...
