@@ -65,6 +65,20 @@
   notify:
     - restart mysql
 
+- name: configure mariadb max_connections
+  ini_file: >
+    dest=/etc/mysql/my.cnf
+    section="{{ item.section }}"
+    option="{{ item.option }}"
+    value="{{ item.value }}"
+    backup=yes
+  become: yes
+  become_method: sudo
+  with_items:
+    - section: mysqld
+      option: max_connections
+      value: 4096
+
 - name: mysql_secure_installation - set root password
   mysql_user:
     host: "{{ item }}"
